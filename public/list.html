@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>create user</title>
+        
         <script>
 
         async function loadMore(id) {
@@ -15,7 +16,9 @@
                         <tr><td>Phone: </td><td>${user.phone}</td></tr>
                         <tr><td>Introduction: </td><td>${user.introduction}</td></tr>
                         <tr><td>Experience: </td><td>${user.experience}</td></tr>
-                        <tr><td>Achivements: </td><td>${user.achivements}</td></tr>`
+                        <tr><td>Achivements: </td><td>${user.achivements}</td></tr>
+                        <tr><td></td><td></td></tr>
+                        `
                         document.getElementById("result-table").innerHTML = row;
 
                 }

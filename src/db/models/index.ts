@@ -25,15 +25,15 @@ User.init({
   },
   phone: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: false,
   },
   introduction: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: false,
   },
   experience: {
     type: DataTypes.TEXT,
-    allowNull: true,
+    allowNull: false,
   },
   achivements: {
     type: DataTypes.TEXT,

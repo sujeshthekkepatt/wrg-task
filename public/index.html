@@ -1,6 +1,11 @@
 <html>
     <head>
         <title>create user</title>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            </style>
         <script>
 
             function submit() {
@@ -11,17 +16,10 @@
                 const experience = document.getElementById("experience").value
                 const introduction = document.getElementById("intro").value
                 const achivements = document.getElementById("achive").value
-
-                console.log({
-                        firstName,
-                        lastName,
-                        email,
-                        phone,
-                        experience,
-                        introduction,
-                        achivements
-                    })
-
+                if (firstName === "" || lastName === "" || email === "" || phone === "" || experience === "" || introduction === "" || achivements === "") {
+                    alert("Empty values for any field is not acceptable")
+                    return
+                }
                 fetch('/user/create',{
                     headers: {'Content-Type': 'application/json'},
                     method: "POST",
@@ -53,7 +51,7 @@
             <tr><td>Phone</td> <td><input type="number" name="phone" id="phone"></td></tr>
             <tr><td>Experience</td> <td><input type="text" name="experience" id="experience"></td></tr>
             <tr><td>Introduction</td> <td><input type="text" name="introduction" id="intro"></td></tr>
-            <tr><td>Achive</td> <td><input type="text" name="achivements" id="achive"></td></tr>
+            <tr><td>Achivements</td> <td><input type="text" name="achivements" id="achive"></td></tr>
             <tr><td></td> <td><button onclick="submit()">Submit</button></td></tr>
             
 

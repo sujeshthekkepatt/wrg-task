@@ -23,15 +23,15 @@ module.exports = {
     },
     phone: {
       type: Sequelize.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     introduction: {
       type: Sequelize.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     experience: {
       type: Sequelize.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     achivements: {
       type: Sequelize.TEXT,
