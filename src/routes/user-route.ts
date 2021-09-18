@@ -1,6 +1,7 @@
 import Router from 'express';
 
 import validateInput from '../middlewares/input-validator';
+import idValidator from '../middlewares/id-validator';
 
 import {User} from './user-type';
 import {createUser, getUserById, getUsers} from './user-util';
@@ -34,7 +35,7 @@ userRouter.get(
   );
 
 userRouter.get(
-    '/list/:id',
+    '/list/:id', idValidator,
      async (req, res) => {
        try {
          const {id} = req.params;
