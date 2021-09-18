@@ -27,6 +27,10 @@ User.init({
     type: DataTypes.TEXT,
     allowNull: true,
   },
+  introduction: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
   experience: {
     type: DataTypes.TEXT,
     allowNull: true,

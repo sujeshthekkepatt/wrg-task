@@ -25,6 +25,10 @@ module.exports = {
       type: Sequelize.TEXT,
       allowNull: true,
     },
+    introduction: {
+      type: Sequelize.TEXT,
+      allowNull: true,
+    },
     experience: {
       type: Sequelize.TEXT,
       allowNull: true,

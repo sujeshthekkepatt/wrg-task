@@ -4,8 +4,16 @@ import {User, Filter} from './user-type';
 
 const createUser = async (user:User) => {
   const {firstName, lastName, achivements, email, experience, introduction, phone} = user;
-  // eslint-disable-next-line babel/camelcase
-  await dbUtil.User.create({first_name: firstName, last_name: lastName, achivements, email, experience, introduction, phone, created_at: new Date(), updated_at: new Date()});
+  await dbUtil.User.findOrCreate({
+    where: {
+      email,
+    },
+    defaults: {
+      // eslint-disable-next-line babel/camelcase
+      first_name: firstName, last_name: lastName, achivements, email, experience, introduction, phone, created_at: new Date(), updated_at: new Date(),
+    },
+  });
+  // await dbUtil.User.create({first_name: firstName, last_name: lastName, achivements, email, experience, introduction, phone, created_at: new Date(), updated_at: new Date()});
 
 };
 

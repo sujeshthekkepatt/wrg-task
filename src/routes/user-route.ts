@@ -10,10 +10,10 @@ const userRouter = Router();
 
 userRouter.post(
   '/create', validateInput,
-   (req, res) => {
+   async (req, res) => {
      try {
        const user = <User>req.body;
-       createUser(user);
+       await createUser(user);
        return res.send('ok');
      } catch (err) {
        return res.status(422).json({error: err.message});

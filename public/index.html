@@ -4,15 +4,26 @@
         <script>
 
             function submit() {
-                const firstName = document.getElementById("first_name")
-                const lastName = document.getElementById("last_name")
-                const email = document.getElementById("email")
-                const phone = document.getElementById("phone")
-                const experience = document.getElementById("experience")
-                const introduction = document.getElementById("intro")
-                const achivements = document.getElementById("achive")
+                const firstName = document.getElementById("first_name").value;
+                const lastName = document.getElementById("last_name").value;
+                const email = document.getElementById("email").value
+                const phone = document.getElementById("phone").value
+                const experience = document.getElementById("experience").value
+                const introduction = document.getElementById("intro").value
+                const achivements = document.getElementById("achive").value
+
+                console.log({
+                        firstName,
+                        lastName,
+                        email,
+                        phone,
+                        experience,
+                        introduction,
+                        achivements
+                    })
 
                 fetch('/user/create',{
+                    headers: {'Content-Type': 'application/json'},
                     method: "POST",
                     body:JSON.stringify({
                         firstName,
@@ -34,7 +45,7 @@
     </head>
     <body>
         <table>
-            <tr><td>Create User</td></tr>
+            <tr><td>Create User</td> <td><a href ="/list.html">List Users</a> </td></tr>
             <tr><td>First Name</td> <td><input type="text" name="firstNname" id="first_name"></td></tr>
             <tr><td>Last Name</td> <td><input type="text" name="lastNname" id="last_name"></td></tr>
             <tr><td>Email</td> <td><input type="email" name="email" id="email"></td></tr>

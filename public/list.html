@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>create user</title>
+        <script>
+
+        async function loadMore(id) {
+                console.log(id)
+                const response = await fetch(`/user/list/${id}`,{
+                    method: "GET",
+                })
+                const user = await response.json()
+                const row= `<tr><td>First Name: </td><td>${user.first_name}</td></tr>
+                        <tr><td>Last Name: </td><td>${user.last_name}</td></tr>
+                        <tr><td>Email: </td><td>${user.email}</td></tr>
+                        <tr><td>Phone: </td><td>${user.phone}</td></tr>
+                        <tr><td>Introduction: </td><td>${user.introduction}</td></tr>
+                        <tr><td>Experience: </td><td>${user.experience}</td></tr>
+                        <tr><td>Achivements: </td><td>${user.achivements}</td></tr>`
+                        document.getElementById("result-table").innerHTML = row;
+
+                }
+
+            (async()=>{
+                
+                const response = await fetch('/user/list',{
+                    method: "GET",
+                })
+                const data = await response.json()
+                if(data.length) {
+                const result = data.map((user)=>{
+                    const row= `<tr><td>First Name: </td><td>${user.first_name}</td></tr>
+                        <tr><td>Last Name: </td><td>${user.last_name}</td></tr>
+                        <tr><td>Email </td><td>${user.email}</td></tr>
+                        <tr><td><button onclick="loadMore(${user.id})">View More</button></td></td></tr>`
+                        return row;
+                })
+
+                const tableData = result.join()
+                console.log(tableData)
+
+                document.getElementById("result-table").innerHTML = tableData;
+            }
+            else {
+                alert("No data");
+                window.location.href = "/";
+            }
+
+        })()
+
+        </script>
+    </head>
+    <body>
+        <table id="result-table">
+
+
+        </table>
+
+
+    </body>
+</html>

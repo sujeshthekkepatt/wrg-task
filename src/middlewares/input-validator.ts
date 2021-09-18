@@ -5,6 +5,7 @@ import {User} from '../routes/user-type';
 const validateInput = (req: any, res: any, next: any) => {
   try {
     let {firstName, lastName, achivements, introduction, email, experience, phone} = <User>req.body;
+    console.log("hola" ,req.body)
     firstName = validator.escape(firstName);
     lastName = validator.escape(lastName);
     achivements = validator.escape(achivements);
