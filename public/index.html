@@ -34,6 +34,13 @@
                     })
                 }).then(data=>{
                     alert("success")
+                   document.getElementById("first_name").value ="";
+                 document.getElementById("last_name").value ="";
+                document.getElementById("email").value ="";
+                 document.getElementById("phone").value ="";
+                document.getElementById("experience").value = "";
+                document.getElementById("intro").value="";
+                document.getElementById("achive").value ="";
                 }).catch(err=>{
                     alert(err)
                 })
