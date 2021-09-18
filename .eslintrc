@@ -1,0 +1,46 @@
+{
+  "env":{
+  "node":true,
+  "commonjs": true
+  },
+  "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js",".ts"],
+                "moduleDirectory": ["node_modules", "src/"]
+            }
+        }
+    },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "no-loops"
+  ],
+  "extends": [
+    "plugin:shopify/esnext"  ],
+  "rules": {
+    "no-tabs": "off", 
+    "max-len": "off",
+    "no-process-env":"off",
+    "no-console": "error",
+    "promise/always-return": "error",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "error",
+    "promise/no-promise-in-callback": "error",
+    "promise/no-callback-in-promise": "error",
+    "promise/no-return-in-finally": "error",
+    "prefer-arrow-callback": "error",
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }],
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "no-warning-comments": [0, { "terms": ["todo", "fixme", "fix"], "location": "start" }]
+
+
+  }
+}

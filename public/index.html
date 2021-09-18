@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>create user</title>
+        <script>
+
+            function submit() {
+                const firstName = document.getElementById("first_name")
+                const lastName = document.getElementById("last_name")
+                const email = document.getElementById("email")
+                const phone = document.getElementById("phone")
+                const experience = document.getElementById("experience")
+                const introduction = document.getElementById("intro")
+                const achivements = document.getElementById("achive")
+
+                fetch('/user/create',{
+                    method: "POST",
+                    body:JSON.stringify({
+                        firstName,
+                        lastName,
+                        email,
+                        phone,
+                        experience,
+                        introduction,
+                        achivements
+                    })
+                }).then(data=>{
+                    alert("success")
+                }).catch(err=>{
+                    alert(err)
+                })
+            }
+
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr><td>Create User</td></tr>
+            <tr><td>First Name</td> <td><input type="text" name="firstNname" id="first_name"></td></tr>
+            <tr><td>Last Name</td> <td><input type="text" name="lastNname" id="last_name"></td></tr>
+            <tr><td>Email</td> <td><input type="email" name="email" id="email"></td></tr>
+
+            <tr><td>Phone</td> <td><input type="number" name="phone" id="phone"></td></tr>
+            <tr><td>Experience</td> <td><input type="text" name="experience" id="experience"></td></tr>
+            <tr><td>Introduction</td> <td><input type="text" name="introduction" id="intro"></td></tr>
+            <tr><td>Achive</td> <td><input type="text" name="achivements" id="achive"></td></tr>
+            <tr><td></td> <td><button onclick="submit()">Submit</button></td></tr>
+            
+
+
+        </table>
+        </form> 
+
+
+    </body>
+</html>
